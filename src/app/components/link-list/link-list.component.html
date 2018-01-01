@@ -1,3 +1,5 @@
-<p>
-  link-list works!
-</p>
+<ul class="list-group mb-5">
+    <app-link *ngFor="let link of links" [link]="link"></app-link>
+</ul>
+
+<app-add-link (linkAdded)="addLink($event)"></app-add-link>

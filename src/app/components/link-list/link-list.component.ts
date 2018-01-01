@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+
+import { Link } from '../../models/Link';
 
 @Component({
   selector: 'app-link-list',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LinkListComponent implements OnInit {
 
-  constructor() { }
+  links: Link[];
+
+  constructor(public dataService: DataService) { }
 
   ngOnInit() {
+    this.links = this.dataService.getLinks();
   }
 
+  addLink(link: Link) {
+    this.dataService.addLink(link);
+  }
 }
