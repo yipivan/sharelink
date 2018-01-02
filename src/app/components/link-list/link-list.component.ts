@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../../services/data.service';
 
 import { Link } from '../../models/Link';
@@ -9,8 +9,8 @@ import { Link } from '../../models/Link';
   styleUrls: ['./link-list.component.css']
 })
 export class LinkListComponent implements OnInit {
-
-  links: Link[];
+  @Input('getSearch') searchTerm: string;
+  links: Link[]; 
 
   constructor(public dataService: DataService) { }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DataService } from '../../services/data.service';
-
 import { Link } from '../../models/Link';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-link',
@@ -9,7 +8,7 @@ import { Link } from '../../models/Link';
   styleUrls: ['./link.component.css']
 })
 export class LinkComponent implements OnInit {
-  @Input('link') link: Link;
+  @Input() link: Link;
 
   constructor(
     public dataService: DataService
@@ -18,8 +17,8 @@ export class LinkComponent implements OnInit {
   ngOnInit() {
   }
 
-  removeLink(link) {
-    this.dataService.removeLink(link);
+  removeLink(link: Link) {
+    this.dataService.removeLink(this.link);
   }
 
 }

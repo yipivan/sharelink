@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,  } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
@@ -14,6 +14,7 @@ import { SearchComponent } from './components/search/search.component';
 
 
 import {DataService } from './services/data.service';
+import { FilterPipe } from './filters/filter.pipe';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {DataService } from './services/data.service';
     NavbarComponent,
     LinkListComponent,
     AddLinkComponent,
-    SearchComponent
+    SearchComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

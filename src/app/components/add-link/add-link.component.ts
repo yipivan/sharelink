@@ -10,8 +10,8 @@ export class AddLinkComponent implements OnInit {
   @Output() linkAdded = new EventEmitter<Link>();
   
   hide: boolean = true;
-  url: string;
-  tags: string;
+  url: string = "https:\//"
+  tags: string[];
 
   constructor() { }
 
