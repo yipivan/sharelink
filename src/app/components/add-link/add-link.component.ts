@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Link } from '../../models/Link';
+import { NgForm } from '@angular/forms/src/directives/ng_form';
 
 @Component({
   selector: 'app-add-link',
@@ -10,7 +11,6 @@ export class AddLinkComponent implements OnInit {
   @Output() linkAdded = new EventEmitter<Link>();
   
   hide: boolean = true;
-  url: string = "https:\//"
   tags: string[];
 
   constructor() { }
@@ -22,8 +22,14 @@ export class AddLinkComponent implements OnInit {
     this.hide = !this.hide;
   }
 
-  addLink() {
-    this.linkAdded.emit({url:this.url, tags:this.tags});
+  onSubmit(addLinkForm: any) {
+    if(addLinkForm.invalid){
+      // Forbid the form from submitting if it is invalid.
+      return;
+    }
+    this.linkAdded.emit({
+      title: addLinkForm.value.title, 
+      url: addLinkForm.value.url, 
+      tags: addLinkForm.value.tags == ""? this.tags: addLinkForm.value.tags})
   }
-
 }

@@ -12,10 +12,8 @@ import { LinkListComponent } from './components/link-list/link-list.component';
 import { AddLinkComponent } from './components/add-link/add-link.component';
 import { SearchComponent } from './components/search/search.component';
 
-
 import {DataService } from './services/data.service';
 import { FilterPipe } from './filters/filter.pipe';
-
 
 @NgModule({
   declarations: [
